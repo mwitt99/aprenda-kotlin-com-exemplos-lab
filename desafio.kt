@@ -1,21 +1,38 @@
-// [Template no Kotlin Playground](https://pl.kotl.in/WcteahpyN)
+enum class Nivel{ BASICO, INTERMEDIARIO, AVANCADO}
 
-enum class Nivel { BASICO, INTERMEDIARIO, DIFICIL }
-
-class Usuario
+data class Usuario(var nomeUsuario: String)
 
 data class ConteudoEducacional(var nome: String, val duracao: Int = 60)
 
-data class Formacao(val nome: String, var conteudos: List<ConteudoEducacional>) {
+data class Formacao(var nome: String, var nivel: Nivel){
+    val inscritos = mutableListOf("Gabriel", "Matheus", "Oscar", "Batista")
+    val mutableListIterator = inscritos.listIterator()
+    val conteudo= ConteudoEducacional("Orgaos")
+    fun matricular() {
+        /*TODO("Utilize o parâmetro $usuario para simular uma matrícula (usar a lista de $inscritos).")*/
+        mutableListIterator.next()
 
-    val inscritos = mutableListOf<Usuario>()
-    
-    fun matricular(usuario: Usuario) {
-        TODO("Utilize o parâmetro $usuario para simular uma matrícula (usar a lista de $inscritos).")
+        nome = "Tecnico de Enfermagem"
+        print("")
+        nivel = Nivel.BASICO
+        print("")
+
+        println("Nome do aluno: " + inscritos)
+        println("Formação do aluno: " + nome)
+        println("Nivel do aluno: " + nivel)
+        println("Conteudo e sua duração: " + conteudo)
     }
 }
-
 fun main() {
-    TODO("Analise as classes modeladas para este domínio de aplicação e pense em formas de evoluí-las.")
+
+/*    TODO("Analise as classes modeladas para este domínio de aplicação e pense em formas de evoluí-las.")
     TODO("Simule alguns cenários de teste. Para isso, crie alguns objetos usando as classes em questão.")
+    */
+    var usuario = Usuario("Lucas")
+    val formacao = Formacao("Enfermagem11", Nivel.AVANCADO)
+    println(usuario)
+    println("")
+
+
+    println(formacao.matricular())
 }
